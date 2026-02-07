@@ -1,0 +1,7 @@
+-- Process Unit
+
+CREATE TABLE Unit(
+	UnitID INT IDENTITY(1,1) PRIMARY KEY,
+	UnitName NVARCHAR(100) NOT NULL,
+	Description NVARCHAR(255) NULL
+);

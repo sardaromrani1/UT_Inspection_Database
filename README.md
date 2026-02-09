@@ -81,3 +81,84 @@ These views are designed to:
 * Simplify reporting
 * Encapsulate complex joins
 * Act as data sources for dashboards (Power BI, Excel, etc.)
+
+
+## Engineering Concepts Used
+* t_current: Latest measured thickness from UT data
+* t_min / allowable thickness: Minimum acceptable thickness
+* Remaining Life:
+  Remaining Life (years) = (t_current - t_min) / Corrosion Rate
+* Inspection Status
+  * OVERDUE
+  * DUE SOON
+  * OK
+
+
+## How to Run the Project
+Prerequisites
+  * Microsoft SQL Server 2019 or later (Express is sufficient)
+  * SQL Server Management Stuio (SSMS)
+
+Setup Steps
+1. Clone the repository:
+   git clone https://github.com/sardaromrani1/UT_Inspection_Database.git
+2. Open SSMS and create an empty database:
+   CREATE DATABASE UT_DATABASE;
+3. Run scripts in the following order:
+4. SQLQuery_TBLE_*.sql (tables)
+5. INSERT/*.sql (Initial data)
+6. ALTER_UPDATE/*.sql (schema changes, if any)
+7. VIEW/*.sql (views)
+8. ANALYTICAL_QUERIES/*.sql (optional)
+
+
+## Example Usage
+
+-- Get the current thickness and remaining life
+SELECT *
+FROM VW_CurrentThickness;
+
+-- Find overdue inspections
+SELECT *
+FROM VW_InspectionPlanning
+WHERE InspectionStatus = 'OVERDUE';
+
+These queries can be directly consumed by:
+* Power BI
+* Excel
+* Custom dashboards
+
+
+
+## Extensibility
+
+This project can be extended with:
+* Stored procedures for inspection entry
+* Triggers for audit logging
+* NoSQL integration (e.g., Neo4j for asset relationships)
+* REST APIs (Django / .NET)
+* RBI-based risk scoring
+
+
+## Learning Value
+This repository demonstrates
+* Real-world SQL Server schema design
+* Engineering data modeling
+* Use of views for analytical abstraction
+* Inspection & asset integrity workflows
+
+
+
+## Author
+Sardar Omrani
+Maintenance & Inspection Data Specialist
+Background: UT Inspection, Asset Integrity, SQL, Data Analysis
+
+
+## License
+This project is provided for educational and professional demonstration purposes.
+You are free to use and adapt it with attribution.
+
+
+## Contributions
+Contributions, suggestions, and improvements are welcome. Feel free to open an issue or submit a pull request.

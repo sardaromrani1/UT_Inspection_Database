@@ -1,0 +1,3 @@
+ALTER TABLE UTMeasurement
+ADD ComponentID INT NOT NULL
+    CONSTRAINT DF_UTMeasurement_ComponentID DEFAULT 1;

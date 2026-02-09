@@ -1,0 +1,2 @@
+ALTER TABLE UTMeasurement
+DROP CONSTRAINT DF_UTMeasurement_ComponentID;
